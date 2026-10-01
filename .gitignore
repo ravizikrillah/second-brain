@@ -1,0 +1,20 @@
+node_modules/
+.DS_Store
+.agents/
+.claude/
+agent/
+dist/
+*.log
+skills-lock.json
+
+
+# Local machine overrides (multi-user team collaboration)
+second-brain.local.json
+*.local.json
+.brainrc.local*
+
+
+# Keep 00-raw-inputs and 1-level subdirectories, ignore everything else inside
+00-raw-inputs/*/*
+!00-raw-inputs/*/.gitkeep
+!00-raw-inputs/*/README.md

@@ -1,0 +1,23 @@
+@startuml
+skinparam style strictuml
+skinparam BoxPadding 10
+autonumber "<b>[00]</b>"
+
+actor "Customer" as User
+participant "API Gateway" as APIGW
+participant "Order Service" as OrderSvc
+database "Postgres DB" as DB
+
+User -> APIGW: POST /api/v1/orders \n<color:#007acc><b>[SRC:BRD#REQ-01]</b></color>
+activate APIGW
+APIGW -> OrderSvc: CreateOrder(payload) \n<color:#28a745><b>[SRC:DDL:tbl_orders]</b></color>
+activate OrderSvc
+OrderSvc -> DB: INSERT INTO tbl_orders \n<color:#28a745><b>[SRC:DDL:tbl_orders]</b></color>
+activate DB
+DB --> OrderSvc: 1 row affected [SRC:DDL:tbl_orders]
+deactivate DB
+OrderSvc --> APIGW: 201 Created (OrderID) [SRC:BRD#REQ-01]
+deactivate OrderSvc
+APIGW --> User: 201 Created [SRC:BRD#REQ-01]
+deactivate APIGW
+@enduml

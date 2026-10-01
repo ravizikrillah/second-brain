@@ -1,0 +1,3 @@
+# 0003. Distribution Package and Automated Init Scaffolding
+
+To allow instant distribution across multiple AI agent tools (Claude Code, Antigravity, Cursor, Codex), we package this repository as an installable agent skill (`ravizikrillah/second-brain`) compliant with the Skills CLI (`npx skills add ravizikrillah/second-brain`) and Claude Code plugins (`claude plugins install ravizikrillah-second-brain`). We introduce the `/brain-init` command and a bundled CLI runner to automatically scaffold the 6-zone directory hierarchy, configuration rules, and baseline templates into any target repository.

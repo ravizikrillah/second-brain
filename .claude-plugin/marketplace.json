@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "ravizikrillah-second-brain",
+  "description": "Universal System Analyst Second Brain for engineering deliverables, provenance tracking, and misinformation defense.",
+  "owner": {
+    "name": "Ravi Zikrillah",
+    "url": "https://github.com/ravizikrillah"
+  },
+  "plugins": [
+    {
+      "name": "ravizikrillah-second-brain",
+      "description": "Transforms BRD, Figma, DB DDL, Code, and MoMs into PlantUML, Markdown API contracts, and LLDs with 5-tier truth precedence.",
+      "source": "./",
+      "category": "architecture"
+    }
+  ]
+}

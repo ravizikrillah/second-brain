@@ -1,0 +1,3 @@
+# 0002. Orchestrator Command Suite and Portable Triplet Rules
+
+To ensure any AI agent (Antigravity, Claude Code, Cursor, Codex, Windsurf) can operate this Second Brain without vendor lock-in, we standardize on a hybrid architecture: an Antigravity custom skill supporting hyphenated slash commands (`/brain-ingest`, `/brain-deliver`, `/brain-branch`, `/brain-adopt`, `/brain-audit`) coupled with universal entrypoint rule files (`AGENTS.md`, `CLAUDE.md`, `.cursorrules`). This guarantees that both automated slash-command workflows and native conversational interactions adhere to the same 5-tier truth hierarchy and 6-zone folder model.

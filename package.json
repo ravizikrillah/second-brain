@@ -1,0 +1,73 @@
+{
+  "name": "@ravizikrillah/second-brain",
+  "version": "1.10.0",
+  "description": "Universal System Analyst Second Brain for AI Agents: Ingest BRD, Figma, DB, Code, & MoM into verified PlantUML, API contracts, LLD, impact analysis, readiness benchmark, and Jira tickets with provenance and anti-gaslighting protection.",
+  "keywords": [
+    "agent-skills",
+    "skills",
+    "claude-plugin",
+    "antigravity",
+    "cursor",
+    "second-brain",
+    "system-analyst",
+    "architecture",
+    "readiness",
+    "provenance"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Ravi Zikrillah",
+    "url": "https://github.com/ravizikrillah"
+  },
+  "homepage": "https://www.skills.sh/ravizikrillah/second-brain",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ravizikrillah/second-brain.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ravizikrillah/second-brain/issues"
+  },
+  "bin": {
+    "second-brain": "./bin/init.js",
+    "brain": "./bin/brain.js"
+  },
+  "main": "./bin/init.js",
+  "files": [
+    "bin/",
+    "skills/",
+    ".claude-plugin/",
+    "brain",
+    "AGENTS.md",
+    "CLAUDE.md",
+    ".cursorrules",
+    "CONTEXT.md",
+    "schema.json",
+    "second-brain.example.json",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "init": "node ./bin/init.js",
+    "organize": "node ./bin/organize.js",
+    "ingest": "node ./bin/ingest-ddl.js && node ./bin/ingest-apis.js && node ./bin/ingest-brd.js",
+    "ingest:ddl": "node ./bin/ingest-ddl.js",
+    "ingest:apis": "node ./bin/ingest-apis.js",
+    "ingest:brd": "node ./bin/ingest-brd.js",
+    "deliver:apis": "node ./bin/generate-api-sequences.js",
+    "branch": "node ./bin/branch.js",
+    "sync": "node ./bin/sync.js",
+    "sync:check": "node ./bin/sync.js --dry-run",
+    "diff": "node ./bin/sync.js --diff",
+    "audit": "node ./bin/audit.js",
+    "readiness": "node ./bin/readiness.js",
+    "eval": "node ./bin/readiness.js",
+    "handoff": "node ./bin/handoff.js",
+    "lint": "node ./bin/lint.js",
+    "qna": "node ./bin/qna.js",
+    "qna:import": "node ./bin/qna.js --import",
+    "query": "node ./bin/query.js",
+    "hooks": "node ./bin/hooks.js",
+    "brain": "node ./bin/brain.js",
+    "test": "node ./bin/audit.js && node ./bin/readiness.js && node ./bin/lint.js"
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SecondBrainConfiguration",
+  "description": "Configuration schema for Second Brain source resolvers, repositories, and truth precedence",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the project or architectural workspace"
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional description of the project"
+    },
+    "sources": {
+      "type": "object",
+      "description": "Source repository and artifact paths",
+      "properties": {
+        "code": {
+          "type": "array",
+          "description": "Backend and frontend code repository paths (monorepos or standalone services)",
+          "items": {
+            "oneOf": [
+              { "type": "string" },
+              {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "path": { "type": "string" },
+                  "runtime": { "type": "string" },
+                  "description": { "type": "string" }
+                },
+                "required": ["path"]
+              }
+            ]
+          }
+        },
+        "ddl": {
+          "type": "array",
+          "description": "Database DDL, migration directories, or SQL schema files",
+          "items": {
+            "oneOf": [
+              { "type": "string" },
+              {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "path": { "type": "string" }
+                },
+                "required": ["path"]
+              }
+            ]
+          }
+        },
+        "brd": {
+          "type": "array",
+          "description": "Business Requirement Documents, PRDs, or Interface Agreement paths",
+          "items": { "type": "string" }
+        },
+        "mom": {
+          "type": "array",
+          "description": "Meeting minutes, chat logs, or alignment notes paths",
+          "items": { "type": "string" }
+        },
+        "figma": {
+          "type": "array",
+          "description": "Figma design specs or UI tokens paths",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "rules": {
+      "type": "object",
+      "properties": {
+        "antiGaslighting": {
+          "type": "boolean",
+          "default": true
+        },
+        "precedence": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  }
+}

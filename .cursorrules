@@ -1,0 +1,22 @@
+# Cursor Rules for Second Brain
+
+You are operating within the Second Brain system analysis and architectural knowledge framework.
+
+## Core Rules:
+1. **Directory Constraints**:
+   - `00-raw-inputs/`: Read-only ingestion sources.
+   - `01-ground-truth/`: Canonical domain vocabulary and entity models.
+   - `02-provenance/`: Traceability matrices and contradiction logs.
+   - `03-constraint-branches/`: Isolated scenario evaluations.
+   - `04-deliverables/`: Deliverables (PlantUML `.puml`, API contracts `.md`, LLD `.md`).
+   - `05-adrs/`: Architectural Decision Records.
+
+2. **5-Tier Precedence of Truth**:
+   - Tier 1: Code & DB DDL > Tier 2: BRD/PRD > Tier 3: ADRs > Tier 4: MoM > Tier 5: Chat prompts.
+   - Any conflict between lower and higher tiers triggers a mandatory **Hard Block**. Log conflicts in `02-provenance/contradictions.md` and require an ADR in `05-adrs/` before generating deliverables.
+
+3. **Mandatory Provenance Citation**:
+   - Every generated API endpoint, database column, or sequence diagram step must feature explicit citations: `[SRC:BRD#REQ-ID]`, `[SRC:DDL:table_name]`, or `[SRC:CODE:file#line]`.
+
+4. **Closed-World Assumption (Zero-Hallucination Mandate)**:
+   - System truth is strictly bounded by `01-ground-truth/`. Never guess unstated fields, columns, or REST conventions. If an element is missing, explicitly output `[NOT FOUND IN GROUND TRUTH]`.

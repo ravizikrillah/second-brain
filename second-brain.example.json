@@ -1,0 +1,52 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Ravizikrillah/second-brain/main/schema.json",
+  "name": "My Enterprise Project",
+  "description": "Second Brain configuration pointing to external live repositories without committing code to this repo",
+  "sources": {
+    "code": [
+      {
+        "name": "order-service",
+        "path": "../backend/order-service",
+        "runtime": "go",
+        "description": "Core checkout & order lifecycle microservice"
+      },
+      {
+        "name": "payment-service",
+        "path": "../backend/payment-service",
+        "runtime": "go"
+      },
+      {
+        "name": "customer-portal",
+        "path": "../frontend/customer-web",
+        "runtime": "nextjs"
+      },
+      "./00-raw-inputs/existing-code"
+    ],
+    "ddl": [
+      "../backend/order-service/migrations",
+      "../backend/payment-service/db/schema.sql",
+      "./00-raw-inputs/db"
+    ],
+    "brd": [
+      "./00-raw-inputs/brd",
+      "../docs/specifications"
+    ],
+    "mom": [
+      "./00-raw-inputs/mom"
+    ],
+    "figma": [
+      "./00-raw-inputs/figma"
+    ]
+  },
+  "rules": {
+    "antiGaslighting": true,
+    "precedence": [
+      "code",
+      "ddl",
+      "brd",
+      "adr",
+      "mom",
+      "chat"
+    ]
+  }
+}
